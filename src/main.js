@@ -18,7 +18,7 @@ const searchService = new APIService;
 const BASE_URL = 'https://pixabay.com/api';
 const API_KEY = '34728091-aad7c1a347ba4d65085b0c300';
 
-export default class APIService {
+ class APIService {
     constructor() {
         this.page = 1,
         this.searchQuery = '';
@@ -115,7 +115,7 @@ refs.buttonLoadMore.addEventListener('click', () => {
 
 let gallery = new SimpleLightbox('.gallery a');
 
-export default function renderingMarkup(images) {
+ function renderingMarkup(images) {
     
     const markup = images.hits.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
        return `<a class="photo" href="${largeImageURL}"><div class="photo-card">
@@ -141,7 +141,7 @@ export default function renderingMarkup(images) {
     gallery.refresh();
 }
 
-export default function smoothScroll() {
+ function smoothScroll() {
   const { height: cardHeight } = document
    .querySelector(".gallery")
              .firstElementChild.getBoundingClientRect();
