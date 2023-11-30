@@ -2,9 +2,7 @@ import iziToast from 'izitoast';
 import Notiflix from 'notiflix';
 import "izitoast/dist/css/iziToast.min.css";
 import SimpleLightbox from "simplelightbox";
-// import renderingMarkup from './js/renderingMarkup';
-// import smoothScroll from './js/smoothScroll';
-// import APIService from './js/APIService';
+import "simplelightbox/dist/simple-lightbox.min.css";
 import axios from "axios";
 
 const refs = {
@@ -14,11 +12,10 @@ const refs = {
   linkToStartPage: document.querySelector('.start-page')
 };
 
-const searchService = new APIService;
 const BASE_URL = 'https://pixabay.com/api';
 const API_KEY = '34728091-aad7c1a347ba4d65085b0c300';
 
- class APIService {
+export default class APIService {
     constructor() {
         this.page = 1,
         this.searchQuery = '';
@@ -42,6 +39,8 @@ const API_KEY = '34728091-aad7c1a347ba4d65085b0c300';
     }
 }
 
+const searchService = new APIService;
+
 refs.form.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
@@ -56,30 +55,43 @@ refs.form.addEventListener('submit', (evt) => {
             renderingMarkup(data);
 
             if (data.hits.length === 0) {
-              iziToast.show({
+              iziToast.warning({
                 message: 'Sorry, there are no images matching your search query. Please try again.',
-              position: topCenter,
-            messageColor: orange
+              position: 'topRight',
+            messageColor: 'navy'
           });              
           return
             }
-            
+
             if (searchService.page === 1) {
-              iziToast.show({
-                message: 'Hooray! We found ${data.totalHits} images.',
-              position: topCenter,
+              iziToast.info({
+                message: `Hooray! We found ${data.totalHits} images.`,
+              position: 'topRight',
             messageColor: "red"
           });
-              
             }
             
+
             if (searchService.page === Math.ceil(data.totalHits/40)) {
-              iziToast.show({
-                message: 'Were sorry, but youve reached the end of search results.',
-              position: top,
-            messageColor: navy
-          });                refs.buttonLoadMore.classList.remove('visually-button');
+              iziToast.warning({
+                message: 'Were sorry, but you`ve reached the end of search results.',
+              position: 'top',
+            messageColor: 'navy'
+          });                
+          
+          refs.buttonLoadMore.classList.remove('visually-button');
             }
+
+            function smoothScroll() {
+              const { height: cardHeight } = document
+               .querySelector(".gallery")
+                         .firstElementChild.getBoundingClientRect();
+                     
+                 window.scrollBy({
+               top: cardHeight * 2,
+               behavior: "smooth",
+             });
+             }
             smoothScroll();
             refs.buttonLoadMore.classList.add('visually-button');
             refs.linkToStartPage.classList.add('visually-link');
@@ -100,8 +112,8 @@ refs.buttonLoadMore.addEventListener('click', () => {
             if (searchService.page === Math.ceil(data.totalHits/40)) {
                 iziToast.show({
                   message: 'Were sorry, but youve reached the end of search results.',
-                position: top,
-              messageColor: navy
+                position: "top",
+              messageColor: "navy"
             });
                 refs.buttonLoadMore.classList.remove('visually-button');
             }
@@ -141,13 +153,3 @@ let gallery = new SimpleLightbox('.gallery a');
     gallery.refresh();
 }
 
- function smoothScroll() {
-  const { height: cardHeight } = document
-   .querySelector(".gallery")
-             .firstElementChild.getBoundingClientRect();
-         
-     window.scrollBy({
-   top: cardHeight * 2,
-   behavior: "smooth",
- });
- }

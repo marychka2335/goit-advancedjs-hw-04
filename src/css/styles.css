@@ -1,25 +1,96 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
-@import url('./reset.css');
-@import url('./vite-promo.css');
-@import url('./header.css');
-
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+body {
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+  color: black;
+}
 
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+b {
+  display: block;
+  margin-bottom: 4px;
+}
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+.load-more {
+  display: none;
+}
+
+.visually-button {
+  display: block;
+  margin: 0 auto 30px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  color: #fff0f0;
+  background-color: #7f96a9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.search-form {
+  background-color: navy;
+  padding: 10px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+
+}
+
+.search-form input {
+  border-radius: 2px;
+  border: none;
+  width: 300px;
+  height: 30px;
+}
+
+.search-form button {
+  display: inline-block;
+  padding: 2px 20px;
+  border-radius: 4px;
+  border: none;
+  color: #fff0f0;
+  background-color: #32648c;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.gallery {
+  margin: 0 auto 30px;
+  padding: 0 15px;
+  width: 1400px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.photo {
+  text-decoration: none;
+  color: black;
+  box-shadow: 1px 4px 6px 0px rgba(0, 0, 0, 0.16), 0px 4px 4px 0px rgba(0, 0, 0, 0.06), 0px 1px 1px 0px rgba(0, 0, 0, 0.12)
+}
+
+.info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-item {
+  text-align: center;
+}
+
+.start-page {
+  display: none;
+}
+
+.visually-link {
+  background-color: navy;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
 }
