@@ -121,7 +121,7 @@ async function handleLoadMore() {
       gallery.querySelectorAll('.gallery__link').length;
     const totalPages = Math.ceil(data.totalHits / 40);
 
-    if (totalDisplayedImages < response.totalHits) {
+    if (totalDisplayedImages < data.totalHits) {
       loadMoreBtn.disabled = false;
       scrollToNextGalleryPage();
     } else {
