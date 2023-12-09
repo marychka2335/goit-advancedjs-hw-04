@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <form class="search-form" id="search-form">
-      <input
-        type="text"
-        name="searchQuery"
-        autocomplete="off"
-        placeholder="Search images..."
-      />
-      <button type="submit">Search</button>
-    </form>
+    <section class="section">
+      <form class="search-form" id="search-form">
+        <input
+          type="text"
+          name="searchQuery"
+          autocomplete="off"
+          placeholder="Search images..."
+        />
+        <button type="submit">Search</button>
+      </form>
+    </section>
+    <div class="container gallery"></div>
 
-    <div class="gallery"></div>
-
-    <a class="start-page" href="#search-form"
-      ><img src="./images/arrow.png" alt="arrow" width="30"
-    /></a>
-    <button type="button" class="load-more">Load more</button>
+    <a class="start-page" href="#search-form"> </a>
+    <button type="button" class="load-more is-hidden">Load more</button>
 
     <script type="module" src="/main.js"></script>
+    <script type="module" src="/api.js"></script>
   </body>
 </html>
