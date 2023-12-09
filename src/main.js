@@ -130,7 +130,7 @@ async function handleLoadMore() {
         messageColor: 'white',
         backgroundColor: 'navy',
         timeout: 3000,
-        position: 'topLeft'
+        position: 'bottomLeft'
     },);
       loadMoreBtn.classList.add('is-hidden');
     }
