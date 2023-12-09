@@ -125,6 +125,7 @@ async function handleLoadMore() {
       loadMoreBtn.disabled = false;
       scrollToNextGalleryPage();
     } else {
+      loadMoreBtn.classList.add('is-hidden');
       iziToast.warning({
         message: 'We are sorry, but you have reached the end of search results.',
         messageColor: 'white',
@@ -132,7 +133,7 @@ async function handleLoadMore() {
         timeout: 3000,
         position: 'bottomLeft'
     },);
-      loadMoreBtn.classList.add('is-hidden');
+      
     }
   } 
   
