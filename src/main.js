@@ -40,9 +40,9 @@ async function handleSubmit(event) {
   try {
     const response = await fetchImages(currentQuery, currentPage, perPage);
 
-    if (response.totalHits === 0) {
-      iziToast.warning({
-        message: '111Sorry, there are no images matching your search query. Please try again.',
+if(currentQuery === 0 || response.totalHits === 0) {
+    iziToast.warning({
+        message: 'Sorry, there are no images matching your search query. Please try again.',
         messageColor: 'white',
         backgroundColor: 'navy',
         timeout: 3000,
