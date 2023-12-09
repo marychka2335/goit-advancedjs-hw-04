@@ -119,9 +119,9 @@ async function handleLoadMore() {
 
     const totalDisplayedImages =
       gallery.querySelectorAll('.gallery__link').length;
-    const totalPages = Math.ceil(data.totalHits / 40);
+    const totalPages = Math.ceil(response.totalHits / 40);
 
-    if (totalDisplayedImages < data.totalHits) {
+    if (totalDisplayedImages < response.totalHits) {
       loadMoreBtn.disabled = false;
       scrollToNextGalleryPage();
     } else {
@@ -136,7 +136,7 @@ async function handleLoadMore() {
       
     }
   } 
-  
+
   catch (onError) {
    }
 }
