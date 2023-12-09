@@ -119,7 +119,7 @@ async function handleLoadMore() {
 
     const totalDisplayedImages =
       gallery.querySelectorAll('.gallery__link').length;
-    const totalPages = Math.ceil(data.totalHits / perPage);
+    const totalPages = Math.ceil(data.totalHits / 40);
 
     if (totalDisplayedImages < response.totalHits) {
       loadMoreBtn.disabled = false;
